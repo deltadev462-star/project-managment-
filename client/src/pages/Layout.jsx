@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchWorkspaces } from '../features/workspaceSlice'
 import { loadTheme } from '../features/themeSlice'
 import { Loader2Icon } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const Layout = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false)
@@ -14,11 +15,20 @@ const Layout = () => {
     const { workspaces, loading } = useSelector((state) => state.workspace)
     const { getToken } = useAuth()
     const dispatch = useDispatch()
+    const { i18n } = useTranslation()
 
-    // Initial load of theme
+    // Initial load of theme and set document direction based on language
     useEffect(() => {
         dispatch(loadTheme())
+        
+        // Set RTL/LTR based on current language
+        document.documentElement.dir = i18n.language === 'ar' ? 'rtl' : 'ltr'
     }, [])
+
+    // Update document direction when language changes
+    useEffect(() => {
+        document.documentElement.dir = i18n.language === 'ar' ? 'rtl' : 'ltr'
+    }, [i18n.language])
 
     // Initial load of workspaces
     useEffect(() => {

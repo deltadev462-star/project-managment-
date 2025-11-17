@@ -1,0 +1,237 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "update": "Update",
+    "submit": "Submit",
+    "back": "Back",
+    "next": "Next",
+    "search": "Search",
+    "filter": "Filter",
+    "reset": "Reset",
+    "yes": "Yes",
+    "no": "No",
+    "all": "All",
+    "none": "None",
+    "select": "Select",
+    "noData": "No data available",
+    "viewAll": "View all",
+    "viewMore": "View {{count}} more"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "projects": "Projects",
+    "meetings": "Meetings",
+    "stakeholders": "Stakeholders",
+    "requirements": "Requirements",
+    "tasks": "Tasks",
+    "team": "Team",
+    "reports": "Reports",
+    "settings": "Settings",
+    "myTasks": "My Tasks",
+    "workspace": "Workspace",
+    "workspaces": "Workspaces"
+  },
+  "dashboard": {
+    "welcome": "Welcome back, {{name}}",
+    "welcomeUser": "Welcome back, User",
+    "subtitle": "Here's what's happening with your projects today",
+    "newProject": "New Project",
+    "createFirstProject": "Create your First Project"
+  },
+  "stats": {
+    "totalProjects": "Total Projects",
+    "completedProjects": "Completed Projects",
+    "myTasks": "My Tasks",
+    "overdue": "Overdue",
+    "projectsIn": "projects in {{workspace}}",
+    "ofTotal": "of {{total}} total",
+    "assignedToMe": "assigned to me",
+    "needAttention": "need attention"
+  },
+  "projectOverview": {
+    "title": "Project Overview",
+    "noProjects": "No projects yet",
+    "progress": "Progress",
+    "members": "members",
+    "noDescription": "No description"
+  },
+  "recentActivity": {
+    "title": "Recent Activity",
+    "noActivity": "No recent activity"
+  },
+  "tasksSummary": {
+    "myTasks": "My Tasks",
+    "overdue": "Overdue",
+    "inProgress": "In Progress",
+    "noMyTasks": "No my tasks",
+    "noOverdue": "No overdue",
+    "noInProgress": "No in progress",
+    "priority": "priority"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Manage and track your projects",
+    "newProject": "New Project",
+    "searchPlaceholder": "Search projects...",
+    "noProjectsFound": "No projects found",
+    "createFirstProject": "Create your first project to get started",
+    "createProject": "Create Project",
+    "allStatus": "All Status",
+    "allPriority": "All Priority"
+  },
+  "project": {
+    "status": {
+      "planning": "Planning",
+      "active": "Active",
+      "onHold": "On Hold",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    },
+    "priority": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    },
+    "tabs": {
+      "tasks": "Tasks",
+      "analytics": "Analytics",
+      "calendar": "Calendar",
+      "settings": "Settings"
+    }
+  },
+  "task": {
+    "status": {
+      "todo": "To Do",
+      "inProgress": "In Progress",
+      "done": "Done"
+    },
+    "type": {
+      "bug": "Bug",
+      "feature": "Feature",
+      "task": "Task",
+      "improvement": "Improvement",
+      "other": "Other"
+    }
+  },
+  "team": {
+    "title": "Team",
+    "subtitle": "Manage team members and their contributions",
+    "inviteMember": "Invite Member",
+    "totalMembers": "Total Members",
+    "activeProjects": "Active Projects",
+    "totalTasks": "Total Tasks",
+    "searchPlaceholder": "Search team members...",
+    "noMembers": "No team members yet",
+    "inviteToCollaborate": "Invite team members to start collaborating",
+    "noMembersMatch": "No members match your search",
+    "adjustSearch": "Try adjusting your search term",
+    "name": "Name",
+    "email": "Email",
+    "role": "Role",
+    "admin": "Admin",
+    "user": "User",
+    "unknownUser": "Unknown User"
+  },
+  "createProject": {
+    "title": "Create New Project",
+    "inWorkspace": "In workspace:",
+    "projectName": "Project Name",
+    "namePlaceholder": "Enter project name",
+    "description": "Description",
+    "descriptionPlaceholder": "Describe your project",
+    "status": "Status",
+    "priority": "Priority",
+    "startDate": "Start Date",
+    "endDate": "End Date",
+    "projectLead": "Project Lead",
+    "noLead": "No lead",
+    "teamMembers": "Team Members",
+    "addTeamMembers": "Add team members",
+    "creating": "Creating...",
+    "selectTeamLead": "Please select a team lead"
+  },
+  "workspace": {
+    "selectWorkspace": "Select Workspace",
+    "workspaceCount": "{{count}} workspace",
+    "workspaceCount_plural": "{{count}} workspaces",
+    "createWorkspace": "Create Workspace",
+    "members_one": "{{count}} member",
+    "members_other": "{{count}} members"
+  },
+  "navbar": {
+    "searchPlaceholder": "Search projects, tasks..."
+  },
+  "myTasksSidebar": {
+    "noTasksAssigned": "No tasks assigned",
+    "status": {
+      "todo": "to do",
+      "inProgress": "in progress",
+      "done": "done"
+    }
+  },
+  "inviteMember": {
+    "title": "Invite Team Member",
+    "invitingTo": "Inviting to workspace:",
+    "emailAddress": "Email Address",
+    "emailPlaceholder": "Enter email address",
+    "role": "Role",
+    "member": "Member",
+    "admin": "Admin",
+    "cancel": "Cancel",
+    "sending": "Sending...",
+    "sendInvitation": "Send Invitation",
+    "invitationSent": "Invitation sent successfully"
+  },
+  "createTask": {
+    "title": "Create New Task",
+    "titleLabel": "Title",
+    "titlePlaceholder": "Task title",
+    "description": "Description",
+    "descriptionPlaceholder": "Describe the task",
+    "type": "Type",
+    "priority": "Priority",
+    "assignee": "Assignee",
+    "unassigned": "Unassigned",
+    "status": "Status",
+    "dueDate": "Due Date",
+    "cancel": "Cancel",
+    "creating": "Creating...",
+    "createTask": "Create Task"
+  },
+  "projectCard": {
+    "noDescription": "No description",
+    "progress": "Progress",
+    "priority": "priority"
+  },
+  "projectTasks": {
+    "filters": {
+      "allStatuses": "All Statuses",
+      "allTypes": "All Types",
+      "allPriorities": "All Priorities",
+      "allAssignees": "All Assignees",
+      "reset": "Reset",
+      "delete": "Delete"
+    },
+    "table": {
+      "title": "Title",
+      "type": "Type",
+      "priority": "Priority",
+      "status": "Status",
+      "assignee": "Assignee",
+      "dueDate": "Due Date",
+      "noTasksFound": "No tasks found for the selected filters.",
+      "confirmDelete": "Are you sure you want to delete the selected tasks?",
+      "deletingTasks": "Deleting tasks...",
+      "tasksDeleted": "Tasks deleted successfully",
+      "updatingStatus": "Updating status...",
+      "statusUpdated": "Task status updated successfully"
+    }
+  }
+}

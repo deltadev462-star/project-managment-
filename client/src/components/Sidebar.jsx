@@ -18,21 +18,23 @@ import MyTasksSidebar from './MyTasksSidebar'
 import ProjectSidebar from './ProjectsSidebar'
 import { NavLink } from 'react-router-dom'
 import { useClerk } from '@clerk/clerk-react'
+import { useTranslation } from 'react-i18next'
 
 const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
 
     const { openUserProfile } = useClerk()
+    const { t } = useTranslation()
 
-const menuItems = [
-  { name: 'Dashboard', href: '/', icon: LayoutDashboardIcon },
-  { name: 'Projects', href: '/projects', icon: FolderOpenIcon },
-  { name: 'Meetings', href: '/meetings', icon: CalendarDaysIcon },
-  { name: 'Stakeholders', href: '/stackholders', icon: UsersRoundIcon },
-  { name: 'Requirements', href: '/requirements', icon: ListTodoIcon },
-  { name: 'Tasks', href: '/tasks', icon: CheckSquareIcon },
-  { name: 'Team', href: '/team', icon: UsersIcon },
-  { name: 'Reports', href: '/reports', icon: BarChart2Icon },
-]
+    const menuItems = [
+      { name: t('navigation.dashboard'), href: '/', icon: LayoutDashboardIcon },
+      { name: t('navigation.projects'), href: '/projects', icon: FolderOpenIcon },
+      { name: t('navigation.meetings'), href: '/meetings', icon: CalendarDaysIcon },
+      { name: t('navigation.stakeholders'), href: '/stackholders', icon: UsersRoundIcon },
+      { name: t('navigation.requirements'), href: '/requirements', icon: ListTodoIcon },
+      { name: t('navigation.tasks'), href: '/tasks', icon: CheckSquareIcon },
+      { name: t('navigation.team'), href: '/team', icon: UsersIcon },
+      { name: t('navigation.reports'), href: '/reports', icon: BarChart2Icon },
+    ]
 
 
     const sidebarRef = useRef(null);
@@ -62,7 +64,7 @@ const menuItems = [
                         ))}
                         <button onClick={openUserProfile} className='flex w-full items-center gap-3 py-2 px-4 text-gray-800 dark:text-zinc-100 cursor-pointer rounded hover:bg-gray-50 dark:hover:bg-zinc-800/60 transition-all'>
                             <SettingsIcon size={16} />
-                            <p className='text-sm truncate'>Settings</p>
+                            <p className='text-sm truncate'>{t('navigation.settings')}</p>
                         </button>
                     </div>
                     <MyTasksSidebar />

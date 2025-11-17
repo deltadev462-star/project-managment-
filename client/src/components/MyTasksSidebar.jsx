@@ -3,12 +3,14 @@ import { CheckSquareIcon, ChevronDownIcon, ChevronRightIcon } from 'lucide-react
 import { useSelector } from 'react-redux';
 import { useUser } from '@clerk/clerk-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 function MyTasksSidebar() {
     const { user } = useUser();
     const { currentWorkspace } = useSelector((state) => state.workspace);
     const [showMyTasks, setShowMyTasks] = useState(false);
     const [myTasks, setMyTasks] = useState([]);
+    const { t } = useTranslation();
 
     const toggleMyTasks = () => setShowMyTasks(prev => !prev);
 
@@ -47,7 +49,7 @@ function MyTasksSidebar() {
             >
                 <div className="flex items-center gap-2">
                     <CheckSquareIcon className="w-4 h-4 text-gray-500 dark:text-zinc-400" />
-                    <h3 className="text-sm font-medium text-gray-700 dark:text-zinc-300">My Tasks</h3>
+                    <h3 className="text-sm font-medium text-gray-700 dark:text-zinc-300">{t('navigation.myTasks')}</h3>
                     <span className="bg-gray-200 dark:bg-zinc-700 text-gray-700 dark:text-zinc-300 text-xs px-2 py-0.5 rounded">
                         {myTasks.length}
                     </span>
@@ -64,7 +66,7 @@ function MyTasksSidebar() {
                     <div className="space-y-1">
                         {myTasks.length === 0 ? (
                             <div className="px-3 py-2 text-xs text-gray-500 dark:text-zinc-500 text-center">
-                                No tasks assigned
+                                {t('myTasksSidebar.noTasksAssigned')}
                             </div>
                         ) : (
                             myTasks.map((task, index) => (
@@ -80,7 +82,7 @@ function MyTasksSidebar() {
                                                 {task.title}
                                             </p>
                                             <p className="text-xs text-gray-500 dark:text-zinc-500 lowercase">
-                                                {task.status.replace('_', ' ')}
+                                                {t(`myTasksSidebar.status.${task.status.toLowerCase()}`)}
                                             </p>
                                         </div>
                                     </div>

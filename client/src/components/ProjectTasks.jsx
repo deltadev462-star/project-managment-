@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { deleteTask, updateTask } from "../features/workspaceSlice";
 import { Bug, CalendarIcon, GitCommit, MessageSquare, Square, Trash, XIcon, Zap } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const typeIcons = {
     BUG: { icon: Bug, color: "text-red-600 dark:text-red-400" },
@@ -26,6 +27,7 @@ const ProjectTasks = ({ tasks }) => {
     const dispatch = useDispatch();
     const { getToken } = useAuth();
     const navigate = useNavigate();
+    const { t } = useTranslation();
     const [selectedTasks, setSelectedTasks] = useState([]);
 
     const [filters, setFilters] = useState({
@@ -59,7 +61,7 @@ const ProjectTasks = ({ tasks }) => {
 
     const handleStatusChange = async (taskId, newStatus) => {
         try {
-            toast.loading("Updating status...");
+            toast.loading(t("projectTasks.table.updatingStatus"));
             const token = await getToken();
 
             await api.put(`/api/tasks/${taskId}`, { status: newStatus }, { headers: { Authorization: `Bearer ${token}` } });
@@ -69,7 +71,7 @@ const ProjectTasks = ({ tasks }) => {
             dispatch(updateTask(updatedTask));
 
             toast.dismissAll();
-            toast.success("Task status updated successfully");
+            toast.success(t("projectTasks.table.statusUpdated"));
         } catch (error) {
             toast.dismissAll();
             toast.error(error?.response?.data?.message || error.message);
@@ -78,17 +80,17 @@ const ProjectTasks = ({ tasks }) => {
 
     const handleDelete = async () => {
         try {
-            const confirm = window.confirm("Are you sure you want to delete the selected tasks?");
+            const confirm = window.confirm(t("projectTasks.table.confirmDelete"));
             if (!confirm) return;
 
             const token = await getToken();
-            toast.loading("Deleting tasks...");
+            toast.loading(t("projectTasks.table.deletingTasks"));
 
             await api.post("/api/tasks/delete", { tasksIds: selectedTasks }, { headers: { Authorization: `Bearer ${token}` } });
             dispatch(deleteTask(selectedTasks));
 
             toast.dismissAll();
-            toast.success("Tasks deleted successfully");
+            toast.success(t("projectTasks.table.tasksDeleted"));
         } catch (error) {
             toast.dismissAll();
             toast.error(error?.response?.data?.message || error.message);
@@ -102,27 +104,27 @@ const ProjectTasks = ({ tasks }) => {
                 {["status", "type", "priority", "assignee"].map((name) => {
                     const options = {
                         status: [
-                            { label: "All Statuses", value: "" },
-                            { label: "To Do", value: "TODO" },
-                            { label: "In Progress", value: "IN_PROGRESS" },
-                            { label: "Done", value: "DONE" },
+                            { label: t("projectTasks.filters.allStatuses"), value: "" },
+                            { label: t("task.status.todo"), value: "TODO" },
+                            { label: t("task.status.inProgress"), value: "IN_PROGRESS" },
+                            { label: t("task.status.done"), value: "DONE" },
                         ],
                         type: [
-                            { label: "All Types", value: "" },
-                            { label: "Task", value: "TASK" },
-                            { label: "Bug", value: "BUG" },
-                            { label: "Feature", value: "FEATURE" },
-                            { label: "Improvement", value: "IMPROVEMENT" },
-                            { label: "Other", value: "OTHER" },
+                            { label: t("projectTasks.filters.allTypes"), value: "" },
+                            { label: t("task.type.task"), value: "TASK" },
+                            { label: t("task.type.bug"), value: "BUG" },
+                            { label: t("task.type.feature"), value: "FEATURE" },
+                            { label: t("task.type.improvement"), value: "IMPROVEMENT" },
+                            { label: t("task.type.other"), value: "OTHER" },
                         ],
                         priority: [
-                            { label: "All Priorities", value: "" },
-                            { label: "Low", value: "LOW" },
-                            { label: "Medium", value: "MEDIUM" },
-                            { label: "High", value: "HIGH" },
+                            { label: t("projectTasks.filters.allPriorities"), value: "" },
+                            { label: t("project.priority.low"), value: "LOW" },
+                            { label: t("project.priority.medium"), value: "MEDIUM" },
+                            { label: t("project.priority.high"), value: "HIGH" },
                         ],
                         assignee: [
-                            { label: "All Assignees", value: "" },
+                            { label: t("projectTasks.filters.allAssignees"), value: "" },
                             ...assigneeList.map((n) => ({ label: n, value: n })),
                         ],
                     };
@@ -147,13 +149,13 @@ const ProjectTasks = ({ tasks }) => {
                         onClick={() => setFilters({ status: "", type: "", priority: "", assignee: "" })}
                         className="px-3 py-1 flex items-center gap-2 rounded bg-gradient-to-br from-purple-400 to-purple-500 text-zinc-100 dark:text-zinc-200 text-sm transition-colors"
                     >
-                        <XIcon className="size-3" /> Reset
+                        <XIcon className="size-3" /> {t("projectTasks.filters.reset")}
                     </button>
                 )}
 
                 {selectedTasks.length > 0 && (
                     <button type="button" onClick={handleDelete} className="px-3 py-1 flex items-center gap-2 rounded bg-gradient-to-br from-indigo-400 to-indigo-500 text-zinc-100 dark:text-zinc-200 text-sm transition-colors" >
-                        <Trash className="size-3" /> Delete
+                        <Trash className="size-3" /> {t("projectTasks.filters.delete")}
                     </button>
                 )}
             </div>
@@ -174,12 +176,12 @@ const ProjectTasks = ({ tasks }) => {
                                             className="size-3 accent-zinc-600 dark:accent-zinc-500"
                                         />
                                     </th>
-                                    <th className="px-4 pl-0 py-3">Title</th>
-                                    <th className="px-4 py-3">Type</th>
-                                    <th className="px-4 py-3">Priority</th>
-                                    <th className="px-4 py-3">Status</th>
-                                    <th className="px-4 py-3">Assignee</th>
-                                    <th className="px-4 py-3">Due Date</th>
+                                    <th className="px-4 pl-0 py-3">{t("projectTasks.table.title")}</th>
+                                    <th className="px-4 py-3">{t("projectTasks.table.type")}</th>
+                                    <th className="px-4 py-3">{t("projectTasks.table.priority")}</th>
+                                    <th className="px-4 py-3">{t("projectTasks.table.status")}</th>
+                                    <th className="px-4 py-3">{t("projectTasks.table.assignee")}</th>
+                                    <th className="px-4 py-3">{t("projectTasks.table.dueDate")}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -225,9 +227,9 @@ const ProjectTasks = ({ tasks }) => {
                                                         value={task.status}
                                                         className="group-hover:ring ring-zinc-100 outline-none px-2 pr-4 py-1 rounded text-sm text-zinc-900 dark:text-zinc-200 cursor-pointer"
                                                     >
-                                                        <option value="TODO">To Do</option>
-                                                        <option value="IN_PROGRESS">In Progress</option>
-                                                        <option value="DONE">Done</option>
+                                                        <option value="TODO">{t("task.status.todo")}</option>
+                                                        <option value="IN_PROGRESS">{t("task.status.inProgress")}</option>
+                                                        <option value="DONE">{t("task.status.done")}</option>
                                                     </select>
                                                 </td>
                                                 <td className="px-4 py-2">
@@ -248,7 +250,7 @@ const ProjectTasks = ({ tasks }) => {
                                 ) : (
                                     <tr>
                                         <td colSpan="7" className="text-center text-zinc-500 dark:text-zinc-400 py-6">
-                                            No tasks found for the selected filters.
+                                            {t("projectTasks.table.noTasksFound")}
                                         </td>
                                     </tr>
                                 )}
@@ -291,16 +293,16 @@ const ProjectTasks = ({ tasks }) => {
                                         </div>
 
                                         <div>
-                                            <label className="text-zinc-600 dark:text-zinc-400 text-xs">Status</label>
+                                            <label className="text-zinc-600 dark:text-zinc-400 text-xs">{t("projectTasks.table.status")}</label>
                                             <select
                                                 name="status"
                                                 onChange={(e) => handleStatusChange(task.id, e.target.value)}
                                                 value={task.status}
                                                 className="w-full mt-1 bg-zinc-100 dark:bg-zinc-800 ring-1 ring-zinc-300 dark:ring-zinc-700 outline-none px-2 py-1 rounded text-sm text-zinc-900 dark:text-zinc-200"
                                             >
-                                                <option value="TODO">To Do</option>
-                                                <option value="IN_PROGRESS">In Progress</option>
-                                                <option value="DONE">Done</option>
+                                                <option value="TODO">{t("task.status.todo")}</option>
+                                                <option value="IN_PROGRESS">{t("task.status.inProgress")}</option>
+                                                <option value="DONE">{t("task.status.done")}</option>
                                             </select>
                                         </div>
 
@@ -318,7 +320,7 @@ const ProjectTasks = ({ tasks }) => {
                             })
                         ) : (
                             <p className="text-center text-zinc-500 dark:text-zinc-400 py-4">
-                                No tasks found for the selected filters.
+                                {t("projectTasks.table.noTasksFound")}
                             </p>
                         )}
                     </div>

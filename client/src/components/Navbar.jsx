@@ -3,11 +3,14 @@ import { UserButton } from '@clerk/clerk-react'
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleTheme } from '../features/themeSlice'
 import { MoonIcon, SunIcon } from 'lucide-react'
+import LangSwitcher from './LangSwitcher'
+import { useTranslation } from 'react-i18next'
 
 const Navbar = ({ setIsSidebarOpen }) => {
 
     const dispatch = useDispatch();
     const { theme } = useSelector(state => state.theme);
+    const { t } = useTranslation();
 
     return (
         <div className="w-full bg-white dark:bg-zinc-900 border-b border-gray-200 dark:border-zinc-800 px-6 xl:px-16 py-3 flex-shrink-0">
@@ -24,7 +27,7 @@ const Navbar = ({ setIsSidebarOpen }) => {
                         <SearchIcon className="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400 dark:text-zinc-400 size-3.5" />
                         <input
                             type="text"
-                            placeholder="Search projects, tasks..."
+                            placeholder={t("navbar.searchPlaceholder")}
                             className="pl-8 pr-4 py-2 w-full bg-white dark:bg-zinc-900 border border-gray-300 dark:border-zinc-700 rounded-md text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-zinc-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition"
                         />
                     </div>
@@ -32,7 +35,7 @@ const Navbar = ({ setIsSidebarOpen }) => {
 
                 {/* Right section */}
                 <div className="flex items-center gap-3">
-
+<LangSwitcher/>
                     {/* Theme Toggle */}
                     <button onClick={() => dispatch(toggleTheme())} className="size-8 flex items-center justify-center bg-white dark:bg-zinc-800 shadow rounded-lg transition hover:scale-105 active:scale-95">
                         {
