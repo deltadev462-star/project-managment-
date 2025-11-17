@@ -22,7 +22,8 @@
     "select": "Select",
     "noData": "No data available",
     "viewAll": "View all",
-    "viewMore": "View {{count}} more"
+    "viewMore": "View {{count}} more",
+    "retry": "Retry"
   },
   "navigation": {
     "dashboard": "Dashboard",
@@ -233,6 +234,75 @@
       "tasksDeleted": "Tasks deleted successfully",
       "updatingStatus": "Updating status...",
       "statusUpdated": "Task status updated successfully"
+    }
+  },
+  "pricing": {
+    "title": "Scale your projects with confidence",
+    "subtitle": "Choose the plan that's right for your team",
+    "errorLoading": "Failed to load pricing plans. Please try again later.",
+    "errorCheckout": "Failed to start checkout",
+    "cancelConfirm": "Are you sure you want to cancel your subscription? You will lose access to premium features at the end of your billing period.",
+    "cancelSuccess": "Subscription cancelled successfully",
+    "cancelError": "Failed to cancel subscription",
+    "loadingPlans": "Loading pricing plans...",
+    "currentPlan": "Current Plan",
+    "freePlan": "Free Plan",
+    "planLimits": "Plan Limits",
+    "unlimited": "Unlimited",
+    "projects": "Projects",
+    "workspaces": "Workspaces",
+    "teamMembers": "Team Members",
+    "cancelSubscription": "Cancel Subscription",
+    "processing": "Processing...",
+    "cancelFirst": "Cancel current plan first",
+    "subscribe": "Subscribe",
+    "freeTrial": "All plans include 14-day free trial. No credit card required.",
+    "needHelp": "Need help choosing?",
+    "contactSales": "Contact our sales team",
+    "interval": {
+      "month": "month",
+      "year": "year"
+    },
+    "plans": {
+      "free": {
+        "name": "Free",
+        "description": "Perfect for individuals getting started",
+        "features": {
+          "0": "1 Project",
+          "1": "1 Workspace",
+          "2": "3 Team Members",
+          "3": "Basic task management",
+          "4": "Basic analytics"
+        }
+      },
+      "starter": {
+        "name": "Starter",
+        "description": "Great for small teams",
+        "features": {
+          "0": "10 Projects",
+          "1": "3 Workspaces",
+          "2": "10 Team Members",
+          "3": "Advanced task management",
+          "4": "Advanced analytics",
+          "5": "Priority support",
+          "6": "Custom integrations"
+        }
+      },
+      "professional": {
+        "name": "Professional",
+        "description": "Best for growing organizations",
+        "features": {
+          "0": "Unlimited Projects",
+          "1": "Unlimited Workspaces",
+          "2": "Unlimited Team Members",
+          "3": "Advanced task management",
+          "4": "Advanced analytics",
+          "5": "Premium support",
+          "6": "Custom integrations",
+          "7": "API access",
+          "8": "Advanced security features"
+        }
+      }
     }
   }
 }
