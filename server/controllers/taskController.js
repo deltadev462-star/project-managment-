@@ -131,3 +131,47 @@ export const deleteTask = async (req, res) => {
         res.status(500).json({ message: error.code || error.message });
     }
 };
+
+// Get tasks by project
+export const getProjectTasks = async (req, res) => {
+    try {
+        const { userId } = await req.auth();
+        const { projectId } = req.params;
+
+        // Check if user has access to the project
+        const project = await prisma.project.findUnique({
+            where: { id: projectId },
+            include: {
+                workspace: { include: { members: true } },
+                members: true
+            }
+        });
+
+        if (!project) {
+            return res.status(404).json({ message: "Project not found" });
+        }
+
+        const isWorkspaceMember = project.workspace.members.some(member => member.userId === userId);
+        const isProjectMember = project.members.some(member => member.userId === userId);
+
+        if (!isWorkspaceMember && !isProjectMember) {
+            return res.status(403).json({ message: "You don't have access to this project" });
+        }
+
+        const tasks = await prisma.task.findMany({
+            where: { projectId },
+            include: {
+                assignee: true,
+                comments: {
+                    include: { user: true }
+                }
+            },
+            orderBy: { createdAt: 'desc' }
+        });
+
+        res.json({ tasks });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: error.code || error.message });
+    }
+};
