@@ -108,6 +108,60 @@
       "settings": "Settings"
     }
   },
+  "projectDetails": {
+    "projectNotFound": "Project not found",
+    "backToProjects": "Back to Projects",
+    "newTask": "New Task",
+    "totalTasks": "Total Tasks",
+    "completed": "Completed",
+    "inProgress": "In Progress",
+    "teamMembers": "Team Members"
+  },
+  "projectAnalytics": {
+    "completionRate": "Completion Rate",
+    "activeTasks": "Active Tasks",
+    "overdueTasks": "Overdue Tasks",
+    "teamSize": "Team Size",
+    "tasksByStatus": "Tasks by Status",
+    "tasksByType": "Tasks by Type",
+    "tasksByPriority": "Tasks by Priority",
+    "tasks": "tasks"
+  },
+  "projectCalendar": {
+    "title": "Task Calendar",
+    "weekDays": {
+      "sun": "Sun",
+      "mon": "Mon",
+      "tue": "Tue",
+      "wed": "Wed",
+      "thu": "Thu",
+      "fri": "Fri",
+      "sat": "Sat"
+    },
+    "tasks": "tasks",
+    "tasksFor": "Tasks for",
+    "priority": "priority",
+    "upcomingTasks": "Upcoming Tasks",
+    "noUpcomingTasks": "No upcoming tasks",
+    "overdueTasks": "Overdue Tasks",
+    "due": "Due",
+    "more": "more"
+  },
+  "projectSettings": {
+    "projectDetails": "Project Details",
+    "projectName": "Project Name",
+    "description": "Description",
+    "status": "Status",
+    "priority": "Priority",
+    "startDate": "Start Date",
+    "endDate": "End Date",
+    "progress": "Progress",
+    "saveChanges": "Save Changes",
+    "saving": "Saving...",
+    "teamMembers": "Team Members",
+    "teamLead": "Team Lead",
+    "unknown": "Unknown"
+  },
   "task": {
     "status": {
       "todo": "To Do",
@@ -304,5 +358,69 @@
         }
       }
     }
+  },
+  "stakeholders": {
+    "title": "Stakeholders",
+    "subtitle": "Manage and track project stakeholders",
+    "addStakeholder": "Add Stakeholder",
+    "totalStakeholders": "Total Stakeholders",
+    "highInfluence": "High Influence",
+    "organizations": "Organizations",
+    "searchPlaceholder": "Search stakeholders...",
+    "noStakeholders": "No stakeholders yet",
+    "noStakeholdersMatch": "No stakeholders match your filters",
+    "addFirstStakeholder": "Add your first stakeholder to get started",
+    "adjustSearch": "Try adjusting your search or filters",
+    "name": "Name",
+    "role": "Role",
+    "organization": "Organization",
+    "contact": "Contact",
+    "influence": "Influence",
+    "interest": "Interest",
+    "projects": "Projects",
+    "actions": "Actions",
+    "filters": "Filters",
+    "clearAll": "Clear all",
+    "viewDetails": "View details",
+    "edit": "Edit",
+    "delete": "Delete",
+    "swipeToSeeMore": "Swipe to see more",
+    "addNewStakeholder": "Add New Stakeholder",
+    "editStakeholder": "Edit Stakeholder",
+    "nameRequired": "Name *",
+    "emailRequired": "Email *",
+    "phone": "Phone",
+    "location": "Location",
+    "influenceLevel": "Influence Level",
+    "interestLevel": "Interest Level",
+    "high": "High",
+    "medium": "Medium",
+    "low": "Low",
+    "notes": "Notes",
+    "linkToProjects": "Link to Projects",
+    "cancel": "Cancel",
+    "saveChanges": "Save Changes",
+    "tabs": {
+      "profile": "Profile",
+      "projects": "Projects",
+      "attachments": "Attachments",
+      "timeline": "Timeline"
+    },
+    "contactInformation": "Contact Information",
+    "engagementLevels": "Engagement Levels",
+    "tags": "Tags",
+    "linkedProjects": "Linked Projects",
+    "activeProject": "Active project",
+    "linkToAnotherProject": "Link to Another Project",
+    "attachments": "Attachments",
+    "uploadFile": "Upload File",
+    "noAttachments": "No attachments yet",
+    "activityTimeline": "Activity Timeline",
+    "status": {
+      "completed": "completed",
+      "scheduled": "scheduled"
+    },
+    "org": "Org",
+    "email": "Email"
   }
 }

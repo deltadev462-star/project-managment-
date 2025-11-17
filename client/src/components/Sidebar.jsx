@@ -30,7 +30,7 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
       { name: t('navigation.dashboard'), href: '/', icon: LayoutDashboardIcon },
       { name: t('navigation.projects'), href: '/projects', icon: FolderOpenIcon },
       { name: t('navigation.meetings'), href: '/meetings', icon: CalendarDaysIcon },
-      { name: t('navigation.stakeholders'), href: '/stackholders', icon: UsersRoundIcon },
+      { name: t('navigation.stakeholders'), href: '/stakeholders', icon: UsersRoundIcon },
       { name: t('navigation.requirements'), href: '/requirements', icon: ListTodoIcon },
       { name: t('navigation.tasks'), href: '/tasks', icon: CheckSquareIcon },
       { name: t('navigation.team'), href: '/team', icon: UsersIcon },

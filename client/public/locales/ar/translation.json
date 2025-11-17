@@ -108,6 +108,60 @@
       "settings": "الإعدادات"
     }
   },
+  "projectDetails": {
+    "projectNotFound": "لم يتم العثور على المشروع",
+    "backToProjects": "العودة إلى المشاريع",
+    "newTask": "مهمة جديدة",
+    "totalTasks": "إجمالي المهام",
+    "completed": "مكتمل",
+    "inProgress": "قيد التنفيذ",
+    "teamMembers": "أعضاء الفريق"
+  },
+  "projectAnalytics": {
+    "completionRate": "معدل الإنجاز",
+    "activeTasks": "المهام النشطة",
+    "overdueTasks": "المهام المتأخرة",
+    "teamSize": "حجم الفريق",
+    "tasksByStatus": "المهام حسب الحالة",
+    "tasksByType": "المهام حسب النوع",
+    "tasksByPriority": "المهام حسب الأولوية",
+    "tasks": "مهام"
+  },
+  "projectCalendar": {
+    "title": "تقويم المهام",
+    "weekDays": {
+      "sun": "الأحد",
+      "mon": "الإثنين",
+      "tue": "الثلاثاء",
+      "wed": "الأربعاء",
+      "thu": "الخميس",
+      "fri": "الجمعة",
+      "sat": "السبت"
+    },
+    "tasks": "مهام",
+    "tasksFor": "مهام في",
+    "priority": "أولوية",
+    "upcomingTasks": "المهام القادمة",
+    "noUpcomingTasks": "لا توجد مهام قادمة",
+    "overdueTasks": "المهام المتأخرة",
+    "due": "تاريخ الاستحقاق",
+    "more": "المزيد"
+  },
+  "projectSettings": {
+    "projectDetails": "تفاصيل المشروع",
+    "projectName": "اسم المشروع",
+    "description": "الوصف",
+    "status": "الحالة",
+    "priority": "الأولوية",
+    "startDate": "تاريخ البدء",
+    "endDate": "تاريخ الانتهاء",
+    "progress": "التقدم",
+    "saveChanges": "حفظ التغييرات",
+    "saving": "جاري الحفظ...",
+    "teamMembers": "أعضاء الفريق",
+    "teamLead": "قائد الفريق",
+    "unknown": "غير معروف"
+  },
   "task": {
     "status": {
       "todo": "قيد الانتظار",
@@ -304,5 +358,69 @@
         }
       }
     }
+  },
+  "stakeholders": {
+    "title": "أصحاب المصلحة",
+    "subtitle": "إدارة وتتبع أصحاب المصلحة في المشروع",
+    "addStakeholder": "إضافة صاحب مصلحة",
+    "totalStakeholders": "إجمالي أصحاب المصلحة",
+    "highInfluence": "تأثير مرتفع",
+    "organizations": "المؤسسات",
+    "searchPlaceholder": "البحث عن أصحاب المصلحة...",
+    "noStakeholders": "لا يوجد أصحاب مصلحة بعد",
+    "noStakeholdersMatch": "لا يوجد أصحاب مصلحة مطابقون لفلاترك",
+    "addFirstStakeholder": "أضف أول صاحب مصلحة للبدء",
+    "adjustSearch": "حاول ضبط البحث أو الفلاتر",
+    "name": "الاسم",
+    "role": "الدور",
+    "organization": "المؤسسة",
+    "contact": "الاتصال",
+    "influence": "التأثير",
+    "interest": "الاهتمام",
+    "projects": "المشاريع",
+    "actions": "الإجراءات",
+    "filters": "الفلاتر",
+    "clearAll": "مسح الكل",
+    "viewDetails": "عرض التفاصيل",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "swipeToSeeMore": "اسحب لرؤية المزيد",
+    "addNewStakeholder": "إضافة صاحب مصلحة جديد",
+    "editStakeholder": "تعديل صاحب المصلحة",
+    "nameRequired": "الاسم *",
+    "emailRequired": "البريد الإلكتروني *",
+    "phone": "الهاتف",
+    "location": "الموقع",
+    "influenceLevel": "مستوى التأثير",
+    "interestLevel": "مستوى الاهتمام",
+    "high": "مرتفع",
+    "medium": "متوسط",
+    "low": "منخفض",
+    "notes": "ملاحظات",
+    "linkToProjects": "الربط بالمشاريع",
+    "cancel": "إلغاء",
+    "saveChanges": "حفظ التغييرات",
+    "tabs": {
+      "profile": "الملف الشخصي",
+      "projects": "المشاريع",
+      "attachments": "المرفقات",
+      "timeline": "الجدول الزمني"
+    },
+    "contactInformation": "معلومات الاتصال",
+    "engagementLevels": "مستويات المشاركة",
+    "tags": "الوسوم",
+    "linkedProjects": "المشاريع المرتبطة",
+    "activeProject": "مشروع نشط",
+    "linkToAnotherProject": "الربط بمشروع آخر",
+    "attachments": "المرفقات",
+    "uploadFile": "رفع ملف",
+    "noAttachments": "لا توجد مرفقات بعد",
+    "activityTimeline": "الجدول الزمني للنشاط",
+    "status": {
+      "completed": "مكتمل",
+      "scheduled": "مجدول"
+    },
+    "org": "المؤسسة",
+    "email": "البريد الإلكتروني"
   }
 }

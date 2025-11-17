@@ -46,9 +46,9 @@ export default function LangSwitcher() {
     <div className="relative inline-block text-left">
       <button
         onClick={toggleDropdown}
-        className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors"
+        className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800   transition bg-white dark:bg-zinc-800 shadow rounded-lg   hover:scale-105 active:scale-95"
       >
-        <Languages className="w-5 h-5" />
+        <Languages className="w-5 h-5   " />
       </button>
 
       {open && (

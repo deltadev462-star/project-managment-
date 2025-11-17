@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 import { CheckCircle, Clock, AlertTriangle, Users, ArrowRightIcon } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 // Colors for charts and priorities
 const COLORS = ["#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6"];
@@ -11,6 +12,7 @@ const PRIORITY_COLORS = {
 };
 
 const ProjectAnalytics = ({ project, tasks }) => {
+    const { t } = useTranslation();
     const { stats, statusData, typeData, priorityData } = useMemo(() => {
         const now = new Date();
         const total = tasks.length;
@@ -40,10 +42,24 @@ const ProjectAnalytics = ({ project, tasks }) => {
 
         return {
             stats,
-            statusData: Object.entries(statusMap).map(([k, v]) => ({ name: k.replace("_", " "), value: v })),
-            typeData: Object.entries(typeMap).filter(([_, v]) => v > 0).map(([k, v]) => ({ name: k, value: v })),
+            statusData: Object.entries(statusMap).map(([k, v]) => ({
+                name: k === 'TODO' ? t('task.status.todo') :
+                      k === 'IN_PROGRESS' ? t('task.status.inProgress') :
+                      k === 'DONE' ? t('task.status.done') : k,
+                value: v
+            })),
+            typeData: Object.entries(typeMap).filter(([_, v]) => v > 0).map(([k, v]) => ({
+                name: k === 'TASK' ? t('task.type.task') :
+                      k === 'BUG' ? t('task.type.bug') :
+                      k === 'FEATURE' ? t('task.type.feature') :
+                      k === 'IMPROVEMENT' ? t('task.type.improvement') :
+                      k === 'OTHER' ? t('task.type.other') : k,
+                value: v
+            })),
             priorityData: Object.entries(priorityMap).map(([k, v]) => ({
-                name: k,
+                name: k === 'LOW' ? t('project.priority.low') :
+                      k === 'MEDIUM' ? t('project.priority.medium') :
+                      k === 'HIGH' ? t('project.priority.high') : k,
                 value: v,
                 percentage: total > 0 ? Math.round((v / total) * 100) : 0,
             })),
@@ -54,28 +70,28 @@ const ProjectAnalytics = ({ project, tasks }) => {
 
     const metrics = [
         {
-            label: "Completion Rate",
+            label: t("projectAnalytics.completionRate"),
             value: `${completionRate}%`,
             color: "text-emerald-600 dark:text-emerald-400",
             icon: <CheckCircle className="size-5 text-emerald-600 dark:text-emerald-400" />,
             bg: "bg-emerald-200 dark:bg-emerald-500/10",
         },
         {
-            label: "Active Tasks",
+            label: t("projectAnalytics.activeTasks"),
             value: stats.inProgress,
             color: "text-blue-600 dark:text-blue-400",
             icon: <Clock className="size-5 text-blue-600 dark:text-blue-400" />,
             bg: "bg-blue-200 dark:bg-blue-500/10",
         },
         {
-            label: "Overdue Tasks",
+            label: t("projectAnalytics.overdueTasks"),
             value: stats.overdue,
             color: "text-red-600 dark:text-red-400",
             icon: <AlertTriangle className="size-5 text-red-600 dark:text-red-400" />,
             bg: "bg-red-200 dark:bg-red-500/10",
         },
         {
-            label: "Team Size",
+            label: t("projectAnalytics.teamSize"),
             value: project?.members?.length || 0,
             color: "text-purple-600 dark:text-purple-400",
             icon: <Users className="size-5 text-purple-600 dark:text-purple-400" />,
@@ -107,7 +123,7 @@ const ProjectAnalytics = ({ project, tasks }) => {
             <div className="grid lg:grid-cols-2 gap-6">
                 {/* Tasks by Status */}
                 <div className="not-dark:bg-white dark:bg-gradient-to-br dark:from-zinc-800/70 dark:to-zinc-900/50 border border-zinc-300 dark:border-zinc-800 rounded-lg p-6">
-                    <h2 className="text-zinc-900 dark:text-white mb-4 font-medium">Tasks by Status</h2>
+                    <h2 className="text-zinc-900 dark:text-white mb-4 font-medium">{t("projectAnalytics.tasksByStatus")}</h2>
                     <ResponsiveContainer width="100%" height={300}>
                         <BarChart data={statusData}>
                             <XAxis
@@ -124,7 +140,7 @@ const ProjectAnalytics = ({ project, tasks }) => {
 
                 {/* Tasks by Type */}
                 <div className="not-dark:bg-white dark:bg-gradient-to-br dark:from-zinc-800/70 dark:to-zinc-900/50 border border-zinc-300 dark:border-zinc-800 rounded-lg p-6">
-                    <h2 className="text-zinc-900 dark:text-white mb-4 font-medium">Tasks by Type</h2>
+                    <h2 className="text-zinc-900 dark:text-white mb-4 font-medium">{t("projectAnalytics.tasksByType")}</h2>
                     <ResponsiveContainer width="100%" height={300}>
                         <PieChart>
                             <Pie
@@ -147,17 +163,17 @@ const ProjectAnalytics = ({ project, tasks }) => {
 
             {/* Priority Breakdown */}
             <div className="not-dark:bg-white dark:bg-gradient-to-br dark:from-zinc-800/70 dark:to-zinc-900/50 border border-zinc-300 dark:border-zinc-800 rounded-lg p-6">
-                <h2 className="text-zinc-900 dark:text-white mb-4 font-medium">Tasks by Priority</h2>
+                <h2 className="text-zinc-900 dark:text-white mb-4 font-medium">{t("projectAnalytics.tasksByPriority")}</h2>
                 <div className="space-y-4">
                     {priorityData.map((p) => (
                         <div key={p.name} className="space-y-2">
                             <div className="flex justify-between items-center">
                                 <div className="flex items-center gap-2">
                                     <ArrowRightIcon className={`size-3.5 ${PRIORITY_COLORS[p.name]} bg-transparent dark:bg-transparent`} />
-                                    <span className="text-zinc-900 dark:text-zinc-200 capitalize">{p.name.toLowerCase()}</span>
+                                    <span className="text-zinc-900 dark:text-zinc-200 capitalize">{p.name}</span>
                                 </div>
                                 <div className="flex items-center gap-2">
-                                    <span className="text-zinc-600 dark:text-zinc-400 text-sm">{p.value} tasks</span>
+                                    <span className="text-zinc-600 dark:text-zinc-400 text-sm">{p.value} {t("projectAnalytics.tasks")}</span>
                                     <span className="px-2 py-0.5 border border-zinc-400 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 text-xs rounded">
                                         {p.percentage}%
                                     </span>
