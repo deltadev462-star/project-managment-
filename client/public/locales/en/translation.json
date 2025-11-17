@@ -422,5 +422,140 @@
     },
     "org": "Org",
     "email": "Email"
+  },
+  "requirements": {
+    "title": "Requirements Management",
+    "subtitle": "Select a project to manage its requirements",
+    "pageTitle": "{{project}} Requirements",
+    "manageTrack": "Manage and track project requirements",
+    "newRequirement": "New Requirement",
+    "searchPlaceholder": "Search requirements...",
+    "searchProjectsPlaceholder": "Search projects...",
+    "noRequirementsFound": "No requirements found",
+    "noProjectsFound": "No projects found",
+    "createFirstProject": "Create a project first to start managing requirements",
+    "adjustFilters": "Try adjusting your filters",
+    "createFirstRequirement": "Create your first requirement to get started",
+    "viewRequirements": "View Requirements →",
+    "backToProjects": "← Back to Projects",
+    "traceabilityMatrix": "Traceability Matrix",
+    "export": "Export",
+    "allTypes": "All Types",
+    "allStatus": "All Status",
+    "allPriority": "All Priority",
+    "table": {
+      "id": "ID",
+      "title": "Title",
+      "type": "Type",
+      "status": "Status",
+      "priority": "Priority",
+      "owner": "Owner",
+      "tasks": "Tasks",
+      "created": "Created",
+      "actions": "Actions",
+      "view": "View"
+    },
+    "types": {
+      "functional": "Functional",
+      "nonFunctional": "Non-Functional",
+      "business": "Business",
+      "technical": "Technical"
+    },
+    "status": {
+      "draft": "Draft",
+      "review": "Review",
+      "approved": "Approved",
+      "implemented": "Implemented",
+      "verified": "Verified",
+      "closed": "Closed"
+    },
+    "priority": {
+      "high": "High Priority",
+      "medium": "Medium Priority",
+      "low": "Low Priority"
+    },
+    "dialog": {
+      "createTitle": "Create New Requirement",
+      "editTitle": "Edit Requirement",
+      "inProject": "In project:",
+      "title": "Title",
+      "titlePlaceholder": "Enter requirement title",
+      "description": "Description",
+      "descriptionPlaceholder": "Provide detailed description of the requirement",
+      "type": "Type",
+      "priority": "Priority",
+      "status": "Status",
+      "stakeholders": "Stakeholders",
+      "noStakeholders": "No stakeholders added to this project yet",
+      "cancel": "Cancel",
+      "create": "Create",
+      "update": "Update",
+      "saving": "Saving..."
+    },
+    "details": {
+      "tabs": {
+        "details": "Details",
+        "comments": "Comments",
+        "history": "History",
+        "attachments": "Attachments",
+        "traceability": "Traceability"
+      },
+      "edit": "Edit",
+      "description": "Description",
+      "noDescription": "No description provided",
+      "owner": "Owner",
+      "created": "Created",
+      "lastUpdated": "Last updated",
+      "stakeholders": "Stakeholders",
+      "comments": {
+        "placeholder": "Add a comment...",
+        "post": "Post",
+        "posting": "Posting...",
+        "noComments": "No comments yet. Be the first to comment!"
+      },
+      "history": {
+        "noHistory": "No history available",
+        "changes": "Changes"
+      },
+      "attachments": {
+        "noAttachments": "No attachments yet",
+        "sharepointNote": "Attachment functionality will be implemented with SharePoint integration",
+        "view": "View"
+      },
+      "traceability": {
+        "linkedTasks": "Linked Tasks",
+        "selectTask": "Select a task to link",
+        "linkTask": "Link Task",
+        "linking": "Linking...",
+        "noTasksLinked": "No tasks linked",
+        "assignedTo": "Assigned to",
+        "viewTask": "View Task",
+        "relatedMeetings": "Related Meetings",
+        "noMeetingsLinked": "No meetings linked",
+        "date": "Date",
+        "location": "Location"
+      }
+    },
+    "matrix": {
+      "title": "Requirements Traceability Matrix",
+      "project": "Project",
+      "exportCSV": "Export CSV",
+      "filters": {
+        "show": "Show:",
+        "stakeholders": "Stakeholders",
+        "tasks": "Tasks",
+        "meetings": "Meetings",
+        "allTypes": "All Types",
+        "allStatus": "All Status"
+      },
+      "loading": "Loading traceability data...",
+      "noData": "No requirements found matching the filters",
+      "noLinked": "No {{item}} linked"
+    },
+    "project": {
+      "teamLead": "Team Lead",
+      "notAssigned": "Not assigned",
+      "members": "Members"
+    }
   }
 }

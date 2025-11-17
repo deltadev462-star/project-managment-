@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { Toaster } from "react-hot-toast";
+ 
 import Layout from "./pages/Layout";
 
 
@@ -16,19 +17,22 @@ const Stakeholders = lazy(() => import("./pages/Stakeholders"));
 const ProjectDetails = lazy(() => import("./pages/ProjectDetails"));
 const TaskDetails = lazy(() => import("./pages/TaskDetails"));
 const Pricing = lazy(() => import("./pages/Pricing"));
+const Requirements = lazy(() => import("./pages/Requirements"));
+const RequirementDetails = lazy(() => import("./pages/RequirementDetails"));
 
  const LoadingFallback = () => (
   <div className="flex items-center justify-center min-h-screen">
     <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
   </div>
 );
-
+ 
 const App = () => {
   return (
     <>
       <Toaster />
       <Routes>
         <Route path="/" element={<Layout />}>
+ 
           <Route
             index
             element={
@@ -85,6 +89,23 @@ const App = () => {
               </Suspense>
             }
           />
+          <Route
+            path="requirements"
+            element={
+              <Suspense fallback={<LoadingFallback />}>
+                <Requirements />
+              </Suspense>
+            }
+          />
+          <Route
+            path="requirement-details"
+            element={
+              <Suspense fallback={<LoadingFallback />}>
+                <RequirementDetails />
+              </Suspense>
+            }
+          />
+
         </Route>
       </Routes>
     </>

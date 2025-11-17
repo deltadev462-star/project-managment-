@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { ArrowLeftIcon, PlusIcon, SettingsIcon, BarChart3Icon, CalendarIcon, FileStackIcon, ZapIcon } from "lucide-react";
+import { ArrowLeftIcon, PlusIcon, SettingsIcon, BarChart3Icon, CalendarIcon, FileStackIcon, ZapIcon, FileTextIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import ProjectAnalytics from "../components/ProjectAnalytics";
 import ProjectSettings from "../components/ProjectSettings";
@@ -73,13 +73,22 @@ export default function ProjectDetail() {
                         </span>
                     </div>
                 </div>
-                <button
-                    onClick={() => setShowCreateTask(true)}
-                    className="flex items-center gap-2 px-5 py-2 text-sm rounded bg-gradient-to-br from-blue-500 to-blue-600 text-white"
-                >
-                    <PlusIcon className="size-4" />
-                    {t('projectDetails.newTask')}
-                </button>
+                <div className="flex gap-2">
+                    <button
+                        onClick={() => navigate(`/requirements?projectId=${id}`)}
+                        className="flex items-center gap-2 px-4 py-2 text-sm rounded border border-zinc-300 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                    >
+                        <FileTextIcon className="size-4" />
+                        {t('navigation.requirements')}
+                    </button>
+                    <button
+                        onClick={() => setShowCreateTask(true)}
+                        className="flex items-center gap-2 px-5 py-2 text-sm rounded bg-gradient-to-br from-blue-500 to-blue-600 text-white"
+                    >
+                        <PlusIcon className="size-4" />
+                        {t('projectDetails.newTask')}
+                    </button>
+                </div>
             </div>
 
             {/* Info Cards */}

@@ -422,5 +422,140 @@
     },
     "org": "المؤسسة",
     "email": "البريد الإلكتروني"
+  },
+  "requirements": {
+    "title": "إدارة المتطلبات",
+    "subtitle": "اختر مشروعًا لإدارة متطلباته",
+    "pageTitle": "متطلبات {{project}}",
+    "manageTrack": "إدارة وتتبع متطلبات المشروع",
+    "newRequirement": "متطلب جديد",
+    "searchPlaceholder": "البحث عن المتطلبات...",
+    "searchProjectsPlaceholder": "البحث عن المشاريع...",
+    "noRequirementsFound": "لم يتم العثور على متطلبات",
+    "noProjectsFound": "لم يتم العثور على مشاريع",
+    "createFirstProject": "قم بإنشاء مشروع أولاً لبدء إدارة المتطلبات",
+    "adjustFilters": "حاول تعديل الفلاتر",
+    "createFirstRequirement": "قم بإنشاء أول متطلب للبدء",
+    "viewRequirements": "عرض المتطلبات ←",
+    "backToProjects": "→ العودة للمشاريع",
+    "traceabilityMatrix": "مصفوفة التتبع",
+    "export": "تصدير",
+    "allTypes": "جميع الأنواع",
+    "allStatus": "جميع الحالات",
+    "allPriority": "جميع الأولويات",
+    "table": {
+      "id": "المعرف",
+      "title": "العنوان",
+      "type": "النوع",
+      "status": "الحالة",
+      "priority": "الأولوية",
+      "owner": "المالك",
+      "tasks": "المهام",
+      "created": "تاريخ الإنشاء",
+      "actions": "الإجراءات",
+      "view": "عرض"
+    },
+    "types": {
+      "functional": "وظيفي",
+      "nonFunctional": "غير وظيفي",
+      "business": "تجاري",
+      "technical": "تقني"
+    },
+    "status": {
+      "draft": "مسودة",
+      "review": "مراجعة",
+      "approved": "معتمد",
+      "implemented": "منفذ",
+      "verified": "متحقق منه",
+      "closed": "مغلق"
+    },
+    "priority": {
+      "high": "أولوية عالية",
+      "medium": "أولوية متوسطة",
+      "low": "أولوية منخفضة"
+    },
+    "dialog": {
+      "createTitle": "إنشاء متطلب جديد",
+      "editTitle": "تعديل المتطلب",
+      "inProject": "في المشروع:",
+      "title": "العنوان",
+      "titlePlaceholder": "أدخل عنوان المتطلب",
+      "description": "الوصف",
+      "descriptionPlaceholder": "قدم وصفًا تفصيليًا للمتطلب",
+      "type": "النوع",
+      "priority": "الأولوية",
+      "status": "الحالة",
+      "stakeholders": "أصحاب المصلحة",
+      "noStakeholders": "لم يتم إضافة أصحاب مصلحة لهذا المشروع بعد",
+      "cancel": "إلغاء",
+      "create": "إنشاء",
+      "update": "تحديث",
+      "saving": "جارٍ الحفظ..."
+    },
+    "details": {
+      "tabs": {
+        "details": "التفاصيل",
+        "comments": "التعليقات",
+        "history": "السجل",
+        "attachments": "المرفقات",
+        "traceability": "التتبع"
+      },
+      "edit": "تعديل",
+      "description": "الوصف",
+      "noDescription": "لا يوجد وصف",
+      "owner": "المالك",
+      "created": "تاريخ الإنشاء",
+      "lastUpdated": "آخر تحديث",
+      "stakeholders": "أصحاب المصلحة",
+      "comments": {
+        "placeholder": "أضف تعليقًا...",
+        "post": "نشر",
+        "posting": "جارٍ النشر...",
+        "noComments": "لا توجد تعليقات بعد. كن أول من يعلق!"
+      },
+      "history": {
+        "noHistory": "لا يوجد سجل متاح",
+        "changes": "التغييرات"
+      },
+      "attachments": {
+        "noAttachments": "لا توجد مرفقات بعد",
+        "sharepointNote": "سيتم تنفيذ وظيفة المرفقات مع تكامل SharePoint",
+        "view": "عرض"
+      },
+      "traceability": {
+        "linkedTasks": "المهام المرتبطة",
+        "selectTask": "اختر مهمة للربط",
+        "linkTask": "ربط المهمة",
+        "linking": "جارٍ الربط...",
+        "noTasksLinked": "لا توجد مهام مرتبطة",
+        "assignedTo": "مكلف إلى",
+        "viewTask": "عرض المهمة",
+        "relatedMeetings": "الاجتماعات ذات الصلة",
+        "noMeetingsLinked": "لا توجد اجتماعات مرتبطة",
+        "date": "التاريخ",
+        "location": "الموقع"
+      }
+    },
+    "matrix": {
+      "title": "مصفوفة تتبع المتطلبات",
+      "project": "المشروع",
+      "exportCSV": "تصدير CSV",
+      "filters": {
+        "show": "عرض:",
+        "stakeholders": "أصحاب المصلحة",
+        "tasks": "المهام",
+        "meetings": "الاجتماعات",
+        "allTypes": "جميع الأنواع",
+        "allStatus": "جميع الحالات"
+      },
+      "loading": "جارٍ تحميل بيانات التتبع...",
+      "noData": "لم يتم العثور على متطلبات مطابقة للفلاتر",
+      "noLinked": "لا يوجد {{item}} مرتبط"
+    },
+    "project": {
+      "teamLead": "قائد الفريق",
+      "notAssigned": "غير مكلف",
+      "members": "الأعضاء"
+    }
   }
 }

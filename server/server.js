@@ -6,6 +6,8 @@ import projectRouter from "./routes/projectRoutes.js";
 import taskRouter from "./routes/taskRoutes.js";
 import commentRouter from "./routes/commentRoutes.js";
 import pricingRouter from "./routes/pricingRoutes.js";
+import requirementRouter from "./routes/requirementRoutes.js";
+import stakeholderRouter from "./routes/stakeholderRoutes.js";
 import { protect } from './middlewares/authMiddleware.js';
 import { clerkMiddleware } from '@clerk/express';
 import { inngest, functions } from './inngest/index.js';
@@ -32,6 +34,8 @@ app.use("/api/projects", protect, projectRouter);
 app.use("/api/tasks", protect, taskRouter);
 app.use("/api/comments", protect, commentRouter);
 app.use("/api/pricing", pricingRouter);
+app.use("/api/requirements", protect, requirementRouter);
+app.use("/api/stakeholders", protect, stakeholderRouter);
 
 const PORT = process.env.PORT || 5000;
 
