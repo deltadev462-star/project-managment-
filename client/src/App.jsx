@@ -16,6 +16,7 @@ const Team = lazy(() => import("./pages/Team"));
 const Stakeholders = lazy(() => import("./pages/Stakeholders"));
 const ProjectDetails = lazy(() => import("./pages/ProjectDetails"));
 const TaskDetails = lazy(() => import("./pages/TaskDetails"));
+const Tasks = lazy(() => import("./pages/Tasks"));
 const Pricing = lazy(() => import("./pages/Pricing"));
 const Requirements = lazy(() => import("./pages/Requirements"));
 const RequirementDetails = lazy(() => import("./pages/RequirementDetails"));
@@ -78,6 +79,14 @@ const App = () => {
             element={
               <Suspense fallback={<LoadingFallback />}>
                 <TaskDetails />
+              </Suspense>
+            }
+          />
+          <Route
+            path="tasks"
+            element={
+              <Suspense fallback={<LoadingFallback />}>
+                <Tasks />
               </Suspense>
             }
           />
