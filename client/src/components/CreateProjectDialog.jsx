@@ -5,12 +5,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { addProject } from "../features/workspaceSlice";
 import toast from "react-hot-toast";
 import api from "../configs/api";
+import { useNavigate } from "react-router-dom";
 
 const CreateProjectDialog = ({ isDialogOpen, setIsDialogOpen }) => {
 
     const dispatch = useDispatch();
     const { getToken } = useAuth();
     const { currentWorkspace } = useSelector((state) => state.workspace);
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         name: "",
@@ -37,7 +39,16 @@ const CreateProjectDialog = ({ isDialogOpen, setIsDialogOpen }) => {
             dispatch(addProject(data.project));
             setIsDialogOpen(false);
         } catch (error) {
-            toast.error(error?.response?.data?.message || error.message);
+            const errorData = error?.response?.data;
+            
+            // Check if the error is due to plan limit exceeded
+            if (errorData?.error === 'PLAN_LIMIT_EXCEEDED') {
+                toast.error(`You've reached your project limit (${errorData.limit} projects). Please upgrade your plan to create more projects.`);
+                setIsDialogOpen(false);
+                navigate('/pricing');
+            } else {
+                toast.error(errorData?.message || error.message);
+            }
         } finally {
             setIsSubmitting(false);
         }

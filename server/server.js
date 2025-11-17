@@ -5,12 +5,17 @@ import workspaceRouter from "./routes/workspaceRoutes.js";
 import projectRouter from "./routes/projectRoutes.js";
 import taskRouter from "./routes/taskRoutes.js";
 import commentRouter from "./routes/commentRoutes.js";
+import pricingRouter from "./routes/pricingRoutes.js";
 import { protect } from './middlewares/authMiddleware.js';
 import { clerkMiddleware } from '@clerk/express';
 import { inngest, functions } from './inngest/index.js';
 import { serve } from "inngest/express";
+import { handleStripeWebhook } from './controllers/pricingController.js';
 
 const app = express();
+
+// Stripe webhook needs raw body - must be before express.json()
+app.post('/api/pricing/webhook', express.raw({ type: 'application/json' }), handleStripeWebhook);
 
 app.use(express.json());
 app.use(cors());
@@ -26,6 +31,7 @@ app.use("/api/workspaces", protect, workspaceRouter);
 app.use("/api/projects", protect, projectRouter);
 app.use("/api/tasks", protect, taskRouter);
 app.use("/api/comments", protect, commentRouter);
+app.use("/api/pricing", pricingRouter);
 
 const PORT = process.env.PORT || 5000;
 

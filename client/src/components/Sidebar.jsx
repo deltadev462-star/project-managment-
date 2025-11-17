@@ -11,7 +11,8 @@ import {
   MoonIcon,
   SunIcon,
   SettingsIcon,
-  UsersIcon
+  UsersIcon,
+  CreditCardIcon
 } from 'lucide-react'
 
 import MyTasksSidebar from './MyTasksSidebar'
@@ -32,6 +33,7 @@ const menuItems = [
   { name: 'Tasks', href: '/tasks', icon: CheckSquareIcon },
   { name: 'Team', href: '/team', icon: UsersIcon },
   { name: 'Reports', href: '/reports', icon: BarChart2Icon },
+  { name: 'Pricing', href: '/pricing', icon: CreditCardIcon },
 ]
 
 
