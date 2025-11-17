@@ -11,7 +11,8 @@ import {
   MoonIcon,
   SunIcon,
   SettingsIcon,
-  UsersIcon
+  UsersIcon,
+  CreditCardIcon
 } from 'lucide-react'
 
 import MyTasksSidebar from './MyTasksSidebar'
@@ -24,7 +25,7 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
 
     const { openUserProfile } = useClerk()
     const { t } = useTranslation()
-
+ 
     const menuItems = [
       { name: t('navigation.dashboard'), href: '/', icon: LayoutDashboardIcon },
       { name: t('navigation.projects'), href: '/projects', icon: FolderOpenIcon },
@@ -34,9 +35,9 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
       { name: t('navigation.tasks'), href: '/tasks', icon: CheckSquareIcon },
       { name: t('navigation.team'), href: '/team', icon: UsersIcon },
       { name: t('navigation.reports'), href: '/reports', icon: BarChart2Icon },
+      { name: t('navigation.pricing'), href: '/pricing', icon: CreditCardIcon },
     ]
-
-
+ 
     const sidebarRef = useRef(null);
 
     useEffect(() => {

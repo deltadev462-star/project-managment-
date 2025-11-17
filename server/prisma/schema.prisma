@@ -56,6 +56,63 @@ model User {
     comments        Comment[]
     ownedWorkspaces Workspace[]
     ProjectMember   ProjectMember[]
+    subscriptions   Subscription[]
+}
+
+enum PlanType {
+    FREE
+    STARTER
+    PROFESSIONAL
+}
+
+enum SubscriptionStatus {
+    ACTIVE
+    CANCELLED
+    EXPIRED
+    TRIALING
+}
+
+model PricingPlan {
+    id                String         @id @default(uuid())
+    name              String         @unique
+    type              PlanType       @unique
+    price             Float          @default(0)
+    currency          String         @default("USD")
+    interval          String?        // "month" or "year"
+    description       String?
+    features          Json           @default("[]")
+    stripeProductId   String?        @unique
+    stripePriceId     String?        @unique
+    isActive          Boolean        @default(true)
+    createdAt         DateTime       @default(now())
+    updatedAt         DateTime       @updatedAt
+
+    // Plan limits
+    maxProjects       Int            @default(1)
+    maxWorkspaces     Int            @default(1)
+    maxTeamMembers    Int            @default(3)
+
+    subscriptions     Subscription[]
+}
+
+model Subscription {
+    id                      String              @id @default(uuid())
+    userId                  String
+    planId                  String
+    stripeSubscriptionId    String?             @unique
+    stripeCustomerId        String?
+    status                  SubscriptionStatus  @default(ACTIVE)
+    startDate               DateTime            @default(now())
+    endDate                 DateTime?
+    cancelledAt             DateTime?
+    createdAt               DateTime            @default(now())
+    updatedAt               DateTime            @updatedAt
+
+    user                    User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+    plan                    PricingPlan         @relation(fields: [planId], references: [id])
+
+    @@index([userId])
+    @@index([stripeSubscriptionId])
 }
 
 model Workspace {

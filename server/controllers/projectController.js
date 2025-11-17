@@ -21,6 +21,55 @@ export const createProject = async (req, res) => {
             return res.status(403).json({ message: "You don't have permission to create projects in this workspace" });
         }
 
+        // Check plan limits for projects
+        const userWorkspaces = await prisma.workspace.findMany({
+            where: {
+                members: {
+                    some: {
+                        userId,
+                        role: 'ADMIN'
+                    }
+                }
+            }
+        });
+        
+        const workspaceIds = userWorkspaces.map(w => w.id);
+        const currentProjectCount = await prisma.project.count({
+            where: {
+                workspaceId: { in: workspaceIds }
+            }
+        });
+
+        // Get user's subscription plan
+        const subscription = await prisma.subscription.findFirst({
+            where: {
+                userId,
+                status: 'ACTIVE'
+            },
+            include: {
+                plan: true
+            }
+        });
+
+        let plan;
+        if (!subscription) {
+            plan = await prisma.pricingPlan.findUnique({
+                where: { type: 'FREE' }
+            });
+        } else {
+            plan = subscription.plan;
+        }
+
+        if (plan && currentProjectCount >= plan.maxProjects) {
+            return res.status(403).json({
+                message: "Project limit reached",
+                error: "PLAN_LIMIT_EXCEEDED",
+                limit: plan.maxProjects,
+                current: currentProjectCount,
+                planType: plan.type
+            });
+        }
+
         // Get Team Lead using email
         const teamLead = await prisma.user.findUnique({
             where: { email: team_lead },
