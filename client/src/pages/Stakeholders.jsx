@@ -969,35 +969,41 @@ const Stakeholders = () => {
           <>
             {/* ======= DESKTOP TABLE ======= */}
             <div className="w-full overflow-hidden rounded-md border border-gray-200 dark:border-zinc-800 hidden md:block">
-              <div className="overflow-x-auto">
-                <table
-                  className="w-full divide-y divide-gray-200 dark:divide-zinc-800"
-                  style={{ minWidth: "900px" }}
-                >
+              {/* Desktop optimized table without horizontal scroll */}
+              <div className="md:overflow-visible overflow-x-auto">
+                <table className="w-full divide-y divide-gray-200 dark:divide-zinc-800 table-fixed">
                   <thead className="bg-gray-50 dark:bg-zinc-900/50">
                     <tr>
-                      <th className="px-3 py-2 md:px-6 md:py-2.5 text-left font-medium text-sm">
+                      {/* Name column - 20% width */}
+                      <th className="w-[20%] px-4 py-2.5 text-left font-medium text-sm">
                         {t("stakeholders.name") || "Name"}
                       </th>
-                      <th className="px-3 py-2 md:px-6 md:py-2.5 text-left font-medium text-sm">
+                      {/* Role column - 15% width */}
+                      <th className="w-[15%] px-3 py-2.5 text-left font-medium text-sm">
                         {t("stakeholders.role") || "Role"}
                       </th>
-                      <th className="px-3 py-2 md:px-6 md:py-2.5 text-left font-medium text-sm whitespace-nowrap">
+                      {/* Organization column - 15% width */}
+                      <th className="w-[15%] px-3 py-2.5 text-left font-medium text-sm">
                         {t("stakeholders.organization") || "Organization"}
                       </th>
-                      <th className="px-3 py-2 md:px-6 md:py-2.5 text-left font-medium text-sm whitespace-nowrap">
+                      {/* Contact column - 20% width */}
+                      <th className="w-[20%] px-3 py-2.5 text-left font-medium text-sm">
                         {t("stakeholders.contact") || "Contact"}
                       </th>
-                      <th className="px-3 py-2 md:px-6 md:py-2.5 text-left font-medium text-sm whitespace-nowrap">
+                      {/* Influence column - 8% width */}
+                      <th className="w-[8%] px-2 py-2.5 text-left font-medium text-sm">
                         {t("stakeholders.influence") || "Influence"}
                       </th>
-                      <th className="px-3 py-2 md:px-6 md:py-2.5 text-left font-medium text-sm whitespace-nowrap">
+                      {/* Interest column - 8% width */}
+                      <th className="w-[8%] px-2 py-2.5 text-left font-medium text-sm">
                         {t("stakeholders.interest") || "Interest"}
                       </th>
-                      <th className="px-3 py-2 md:px-6 md:py-2.5 text-left font-medium text-sm whitespace-nowrap">
+                      {/* Projects column - 6% width */}
+                      <th className="w-[6%] px-2 py-2.5 text-center font-medium text-sm">
                         {t("stakeholders.projects") || "Projects"}
                       </th>
-                      <th className="px-3 py-2 md:px-6 md:py-2.5 text-center font-medium text-sm whitespace-nowrap">
+                      {/* Actions column - 8% width */}
+                      <th className="w-[8%] px-2 py-2.5 text-center font-medium text-sm">
                         {t("stakeholders.actions")}
                       </th>
                     </tr>
@@ -1009,9 +1015,10 @@ const Stakeholders = () => {
                         key={stakeholder.id}
                         className="hover:bg-gray-50 dark:hover:bg-zinc-800/50 transition-colors"
                       >
-                        <td className="px-3 py-2 md:px-6 md:py-2.5 whitespace-nowrap">
-                          <div className="flex items-center gap-3">
-                            <div className="size-8 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white text-sm font-medium">
+                        {/* Name cell with avatar */}
+                        <td className="px-4 py-2.5">
+                          <div className="flex items-center gap-2 min-w-0">
+                            <div className="size-8 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white text-xs font-medium flex-shrink-0">
                               {stakeholder.name
                                 .split(" ")
                                 .map((n) => n[0])
@@ -1019,46 +1026,52 @@ const Stakeholders = () => {
                             </div>
                             <button
                               onClick={() => openStakeholderDetail(stakeholder)}
-                              className="text-sm text-zinc-800 dark:text-white font-medium hover:text-blue-500 dark:hover:text-blue-400"
+                              className="text-sm text-zinc-800 dark:text-white font-medium hover:text-blue-500 dark:hover:text-blue-400 truncate"
+                              title={stakeholder.name}
                             >
                               {stakeholder.name}
                             </button>
                           </div>
                         </td>
 
-                        <td className="px-3 py-2 md:px-6 md:py-2.5 whitespace-nowrap">
-                          <div className="flex items-center gap-2">
-                            <Briefcase className="size-3.5 text-gray-400" />
-                            <span className="text-sm text-gray-600 dark:text-zinc-300">
+                        {/* Role cell */}
+                        <td className="px-3 py-2.5">
+                          <div className="flex items-center gap-1 min-w-0">
+                            <Briefcase className="size-3.5 text-gray-400 flex-shrink-0" />
+                            <span className="text-sm text-gray-600 dark:text-zinc-300 truncate" title={stakeholder.role}>
                               {stakeholder.role}
                             </span>
                           </div>
                         </td>
 
-                        <td className="px-3 py-2 md:px-6 md:py-2.5 whitespace-nowrap">
-                          <div className="flex items-center gap-2">
-                            <Building2 className="size-3.5 text-gray-400" />
-                            <span className="text-sm text-gray-600 dark:text-zinc-300">
+                        {/* Organization cell */}
+                        <td className="px-3 py-2.5">
+                          <div className="flex items-center gap-1 min-w-0">
+                            <Building2 className="size-3.5 text-gray-400 flex-shrink-0" />
+                            <span className="text-sm text-gray-600 dark:text-zinc-300 truncate" title={stakeholder.organization}>
                               {stakeholder.organization}
                             </span>
                           </div>
                         </td>
 
-                        <td className="px-3 py-2 md:px-6 md:py-2.5 whitespace-nowrap">
-                          <div className="flex items-center gap-2">
-                            <Mail className="size-3.5 text-gray-400" />
+                        {/* Contact cell - email with truncation */}
+                        <td className="px-3 py-2.5">
+                          <div className="flex items-center gap-1 min-w-0">
+                            <Mail className="size-3.5 text-gray-400 flex-shrink-0" />
                             <a
                               href={`mailto:${stakeholder.email}`}
-                              className="text-sm text-blue-500 hover:underline"
+                              className="text-sm text-blue-500 hover:underline truncate"
+                              title={stakeholder.email}
                             >
                               {stakeholder.email}
                             </a>
                           </div>
                         </td>
 
-                        <td className="px-3 py-2 md:px-6 md:py-2.5 whitespace-nowrap">
+                        {/* Influence badge */}
+                        <td className="px-2 py-2.5">
                           <span
-                            className={`px-2 py-1 text-xs rounded-md capitalize ${getInfluenceColor(
+                            className={`inline-block px-2 py-1 text-xs rounded-md capitalize ${getInfluenceColor(
                               stakeholder.influence
                             )}`}
                           >
@@ -1066,9 +1079,10 @@ const Stakeholders = () => {
                           </span>
                         </td>
 
-                        <td className="px-3 py-2 md:px-6 md:py-2.5 whitespace-nowrap">
+                        {/* Interest badge */}
+                        <td className="px-2 py-2.5">
                           <span
-                            className={`px-2 py-1 text-xs rounded-md capitalize ${getInterestColor(
+                            className={`inline-block px-2 py-1 text-xs rounded-md capitalize ${getInterestColor(
                               stakeholder.interest
                             )}`}
                           >
@@ -1076,35 +1090,34 @@ const Stakeholders = () => {
                           </span>
                         </td>
 
-                        <td className="px-3 py-2 md:px-6 md:py-2.5 whitespace-nowrap">
-                          <div className="flex items-center gap-1">
-                            <Link2 className="size-3.5 text-gray-400" />
-                            <span className="text-sm text-gray-600 dark:text-zinc-300">
-                              {stakeholder.projects.length}
-                            </span>
-                          </div>
+                        {/* Projects count */}
+                        <td className="px-2 py-2.5 text-center">
+                          <span className="text-sm text-gray-600 dark:text-zinc-300">
+                            {stakeholder.projects.length}
+                          </span>
                         </td>
 
-                        <td className="px-3 py-2 md:px-6 md:py-2.5 whitespace-nowrap text-center">
-                          <div className="flex items-center justify-center gap-1">
+                        {/* Actions */}
+                        <td className="px-2 py-2.5">
+                          <div className="flex items-center justify-center gap-0.5">
                             <button
                               onClick={() => openStakeholderDetail(stakeholder)}
                               className="p-1 hover:bg-gray-100 dark:hover:bg-zinc-700 rounded transition"
                               title={t("stakeholders.viewDetails")}
                             >
-                              <Eye className="size-4 text-gray-600 dark:text-zinc-400" />
+                              <Eye className="size-3.5 text-gray-600 dark:text-zinc-400" />
                             </button>
                             <button
                               className="p-1 hover:bg-gray-100 dark:hover:bg-zinc-700 rounded transition"
                               title={t("stakeholders.edit")}
                             >
-                              <Edit2 className="size-4 text-gray-600 dark:text-zinc-400" />
+                              <Edit2 className="size-3.5 text-gray-600 dark:text-zinc-400" />
                             </button>
                             <button
                               className="p-1 hover:bg-gray-100 dark:hover:bg-zinc-700 rounded transition"
                               title={t("stakeholders.delete")}
                             >
-                              <Trash2 className="size-4 text-red-500 dark:text-red-400" />
+                              <Trash2 className="size-3.5 text-red-500 dark:text-red-400" />
                             </button>
                           </div>
                         </td>
@@ -1112,14 +1125,6 @@ const Stakeholders = () => {
                     ))}
                   </tbody>
                 </table>
-              </div>
-
-              {/* Mobile scroll indicator */}
-              <div className="md:hidden text-center py-2 text-xs text-gray-500 dark:text-zinc-400 border-t dark:border-zinc-800">
-                <span className="flex items-center justify-center gap-1">
-                  <ChevronRight className="size-3" />
-                  {t("stakeholders.swipeToSeeMore")}
-                </span>
               </div>
             </div>
 
